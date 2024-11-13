@@ -1,27 +1,206 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jugadores</title>
 
-<title>JUGADORES-vista</title>
-<!-- Bootstrap core CSS -->
-<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet">
-<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+			background-image: url(https://t3.ftcdn.net/jpg/00/73/08/22/360_F_73082224_ay4Tus31QNHNmGSIty53ZE6mBrBc47cV.jpg);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .container-full {
+            width: 100%;
+            max-width: 1920px;
+        }
+        .header-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 0px;
+            margin-bottom: 100px;
+        }
+        .btn-custom {
+            font-size: 1.4rem;
+            padding: 25px;
+            margin-bottom:50px;
+        }
+        .buttons-container {
+            align-items: flex-start;
+            margin-left: 0px;
+        }
+        .card-custom {
+            width: 20%; 
+            margin: 0 10px;
+            height: 700px; 
+            border-radius: 50px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 250px;
+            position: relative; 
+            padding-top: 10px;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .circle-image {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .circle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .character-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            margin-top: 20px;
+			margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .row-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+        }
+        .btn-back {
+            background-color: #555555; 
+            color: white;
+        }
+
+        .player-name {
+            background-color: rgb(128, 128, 128);
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            margin: 30px 0;
+            border-radius: 10px;
+            width: 90%;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .character-name {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            width: 90%;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .player-description {
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            width: 90%;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+		.btn-custom {
+			background-color: #555555;
+			color: #ffffff;
+		        }
+    </style>
 </head>
-
 <body>
+    <!-- Encabezado -->
+    <div class="container-full">
+        <h1 class="header-title">VISTA DE JUGADORES</h1>
+    </div>
 
-	<h1>VISTA DE JUGADORES</h1>
+    <!-- Contenedor principal -->
+    <div class="container-full d-flex align-items-center justify-content-center">
+        <div class="row w-100">
+            <!-- Columna de botones -->
+            <div class="col-md-2 buttons-container">
+                <button class="btn btn-custom w-100">Jugar</button>
+                <button class="btn btn-custom w-100">Añadir Jugador</button>
+                <button class="btn btn-custom w-100">Reglas y Contexto</button>
+                <button class="btn btn-custom w-100">Selección de Personajes</button>
+                <button class="btn btn-custom w-100">Regresar</button>
+            </div>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-	 
+            <!-- Columna de tarjetas -->
+            <div class="col-md-10">
+                <div class="row row-content">
+                    <!-- Card 1 -->
+                    <div class="card card-custom bg-primary text-white">
+                        <div class="circle-image">
+                            <img src="https://m.media-amazon.com/images/I/31wkcwha+xL._AC_.jpg" alt="Jugador 1">
+                        </div>
+                        <div class="card-body">
+                            <div class="player-name"><h3 class="card-title">Carlos Quinto</h3></div>
+                            <div class="character-name"><h6>Ferrocarril</h6></div> 
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvjHRKPlbr8YLaXsoCHE1uQdDur1PAfbZksg&s" alt="Ficha del personaje" class="character-image"> 
+                            <div class="player-description"><p>Un imponente ferrocarril de acero que atraviesa vastos paisajes, llevando historias y secretos.</p></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card card-custom bg-danger text-white">
+                        <div class="circle-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVq-OmHL5H_5P8b1k306pFddOe3049-il2A&s" alt="Jugador 2">
+                        </div>
+                        <div class="card-body">
+                            <div class="player-name"><h3 class="card-title">*Nombre del jugador*</h3></div>
+                            <div class="character-name"><h6>Nombre del personaje</h6></div> 
+                            <img src="https://via.placeholder.com/100" alt="Ficha del personaje" class="character-image"> 
+                            <div class="player-description"><p>*Descripción o lema corto y atractivo del personaje seleccionado*</p></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card card-custom bg-warning text-dark">
+                        <div class="circle-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVq-OmHL5H_5P8b1k306pFddOe3049-il2A&s" alt="Jugador 3">
+                        </div>
+                        <div class="card-body">
+                            <div class="player-name"><h3 class="card-title">*Nombre del jugador*</h3></div>
+                            <div class="character-name"><h6>Nombre del personaje</h6></div> 
+                            <img src="https://via.placeholder.com/100" alt="Ficha del personaje" class="character-image"> 
+                            <div class="player-description"><p>*Descripción o lema corto y atractivo del personaje seleccionado*</p></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="card card-custom bg-info text-white">
+                        <div class="circle-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmVq-OmHL5H_5P8b1k306pFddOe3049-il2A&s" alt="Jugador 4">
+                        </div>
+                        <div class="card-body">
+                            <div class="player-name"><h3 class="card-title">*Nombre del jugador*</h3></div>
+                            <div class="character-name"><h6>Nombre del personaje</h6></div> 
+                            <img src="https://via.placeholder.com/100" alt="Ficha del personaje" class="character-image"> 
+                            <div class="player-description"><p>*Descripción o lema corto y atractivo del personaje seleccionado*</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
