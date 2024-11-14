@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="favicon.ico">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
 
-<title>INICIO-vista</title>
-<!-- Bootstrap core CSS -->
-<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet">
-<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
-</head>
+    <title>INICIO-vista</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet" />
+    <!--<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet" /> -->
+    <link rel="stylesheet" href="../../static/bootstrap/css/inicio.css" />
+  </head>
 
-<body>
-
-	<div class="card" style="width: 18rem;">
+  <body>
+    <!--<div class="card" style="width: 18rem;">
 		<img src="..." class="card-img-top" alt="...">
 		<div class="card-body">
 			<h5 class="card-title">Card title</h5>
@@ -26,10 +27,21 @@
 				title and make up the bulk of the card's content.</p>
 			<a href="#" class="btn btn-primary">Go somewhere</a>
 		</div>
-	</div>
+	</div> -->
+    <main class="fondo">
+      <article class="contenedor">
+        <h1 class="titulo">CHALLENGE</h1>
+        <section class="contenedor_img">
+          <img src="../../static/img/ChallengeInicio.jpg" alt="img" />
+        </section>
+        <section class="botones">
+          <a href="">Nuevo Juego</a>
+          <a href="">Sobre Doctums</a>
+        </section>
+      </article>
+    </main>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-	 
-</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+  </body>
 </html>
