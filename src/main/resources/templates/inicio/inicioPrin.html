@@ -15,7 +15,7 @@
     <!-- Custom styles for this template -->
     <link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet" />
     <!--<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet" /> -->
-    <link rel="stylesheet" href="../../static/bootstrap/css/inicio.css" />
+    <link rel="stylesheet" th:href="@{bootstrap/css/inicio.css}" />
   </head>
 
   <body>
@@ -32,11 +32,11 @@
       <article class="contenedor">
         <h1 class="titulo">CHALLENGE</h1>
         <section class="contenedor_img">
-          <img src="../../static/img/ChallengeInicio.jpg" alt="img" />
+          <img th:src="@{/bootstrap/images/ChallengeInicio.png}" alt="imgInicio2" />
         </section>
         <section class="botones">
-          <a href="">Nuevo Juego</a>
-          <a href="">Sobre Doctums</a>
+          <a th:href="@{inicio/jugadores}">Nuevo Juego</a>
+          <a href="https://www.doctums.com/" target="_blank">Sobre Doctums</a>
         </section>
       </article>
     </main>
