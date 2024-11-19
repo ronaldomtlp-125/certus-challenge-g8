@@ -14,14 +14,17 @@
 <!-- Custom styles for this template -->
 <link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet">
 <link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
 
-	<h1>VISTA DE JUEGO</h1>
-	<button type="button" class="btn btn-primary" disabled><a th:href="@{/juego/resultados}" style="color: white; text-decoration: none;">Ver Resultados</a></button>
+	<h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+	
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-	 
 </body>
 </html>

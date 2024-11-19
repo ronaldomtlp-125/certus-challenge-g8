@@ -22,9 +22,9 @@ public class ControladorVistasPrinc {
 		return "/juego/juegoPrin";
 	}
 	
-	@GetMapping("/juego/resultados")
+	@GetMapping("/resultados")
 	public String pantallaResultados() {
-		return "/resultado/resultadoPrin";
+		return "/resultado/Tabla de resultados";
 	}
 	
 	@GetMapping("/juego/resultados/ganador")
