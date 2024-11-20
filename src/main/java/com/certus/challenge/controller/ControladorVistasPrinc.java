@@ -40,4 +40,8 @@ public class ControladorVistasPrinc {
 		return "/ventanas/jugadores/selectorPrin"; // ruta de la carpeta
 	}
 	
+	@GetMapping("/otravistas")
+	public String ventanaJuego() {
+		return "/ventanas/juego/Info del juego";
+	}
 }
