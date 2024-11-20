@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge - Selección de Personajes</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #333;
+            color: white;
+        }
+
+        h1, h2 {
+            background-color: #fff;
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .jugador, .personaje {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #btn-regresar {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container position-relative">
+        <!-- Botón Regresar -->
+        <button id="btn-regresar" class="btn btn-secondary">Regresar</button>
+
+        <h1 class="text-center my-4">CHALLENGE</h1>
+        <h2 class="text-center mb-4">Selección de personajes</h2>
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="jugador">
+                            <h5>Carlos Quinto</h5>
+                            <p>Ferrocarril</p>
+                            <img th:src="@{/bootstrap/images/Pictograma_Tren.png}" alt="Pictograma Tren" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="jugador">
+                            <h5>Maria</h5>
+                            <p>carro</p>
+                            <img th:src="@{bootstrap/images/png-transparent-car-toyota-computer-icons-car-thumbnail.png}" alt="Pictograma Tren" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="jugador">
+                            <h5>Nicolas</h5>
+                            <p>Moto</p>
+                            
+                            <img th:src="@{bootstrap/images/cruiser-motorbike-silhouette-58532c.webp}" alt="Pictograma Tren" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="jugador">
+                            <h5>Victoria</h5>
+                            <p>Avión</p>
+                            <img th:src="@{bootstrap/images/images.png}" alt="Pictograma_Tren" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Perro</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Gato</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Carro</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Pato</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Pan</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Jugo</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Caja</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="personaje">
+                    <h6>Personaje Gorra</h6>
+                    <p>*Lema*</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-4">
+            By Doctums
+        </footer>
+    </div>
+
+    <!-- Enlace a Bootstrap JS (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
