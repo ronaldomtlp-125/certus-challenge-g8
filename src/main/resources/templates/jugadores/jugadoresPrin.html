@@ -18,6 +18,9 @@
             align-items: center;
             justify-content: center;
             margin: 0;
+            background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
         }
         .container-full {
             width: 100%;
@@ -140,8 +143,8 @@
             <div class="col-md-2 buttons-container">
                 <a th:href="@{/juego}"><button class="btn btn-custom w-100">Jugar</button></a>
                 <button class="btn btn-custom w-100">Añadir Jugador</button>
-                <button class="btn btn-custom w-100">Reglas y Contexto</button>
-                <button class="btn btn-custom w-100">Selección de Personajes</button>
+                <a  th:href="@{/info}"><button class="btn btn-custom w-100">Reglas y Contexto</button></a>
+                <a th:href="@{/jugadoresselect}"><button class="btn btn-custom w-100">Selección de Personajes</button></a>
                 <a th:href="@{/inicio}"><button class="btn btn-custom w-100">Regresar</button></a>
             </div>
 

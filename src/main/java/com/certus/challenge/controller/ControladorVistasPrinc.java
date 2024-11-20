@@ -35,12 +35,12 @@ public class ControladorVistasPrinc {
 	}
 
 	// Lucio testea en esta ruta tu vista
-	@GetMapping("/ventanas")
+	@GetMapping("/jugadoresselect")
 	public String ventanasTest() {
 		return "/ventanas/jugadores/selectorPrin"; // ruta de la carpeta
 	}
 	
-	@GetMapping("/otravistas")
+	@GetMapping("/info")
 	public String ventanaJuego() {
 		return "/ventanas/juego/Info del juego";
 	}
