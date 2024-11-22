@@ -31,7 +31,7 @@ public class ControladorVistasPrinc {
 	
 	@GetMapping("/juego/resultados/ganador")
 	public String pantallaGanador() {
-		return "/ganador/ganadorPrin";
+		return "/ganador/ganador";
 	}
 
 	// Lucio testea en esta ruta tu vista
@@ -44,4 +44,10 @@ public class ControladorVistasPrinc {
 	public String ventanaJuego() {
 		return "/ventanas/juego/Info del juego";
 	}
+
+	@GetMapping("/pausa")
+	public String menuPausa() {
+		return "/ventanas/juego/Menu de pausa";
+	}
+	
 }

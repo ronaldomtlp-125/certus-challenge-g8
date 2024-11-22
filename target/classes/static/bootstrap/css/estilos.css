@@ -1,0 +1,198 @@
+/* Estilo global */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Evita scroll innecesario */
+}
+/* Estilo para destacar el título */
+.title span {
+    display: inline-block; /* Para aplicar los estilos alrededor del texto */
+    border: 2px solid #0078d7; /* Borde azul llamativo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #eaf4ff; /* Fondo suave azul claro */
+    color: #0078d7; /* Color del texto */
+    box-shadow: 0px 4px 10px rgba(0, 120, 215, 0.3); /* Sombra suave */
+    font-weight: bold; /* Negrita para destacar */
+    text-transform: uppercase; /* Todo en mayúsculas */
+    animation: pulse 1.5s infinite; /* Animación ligera */
+}
+
+/* Animación para el título */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Efecto de crecimiento */
+    }
+}
+
+/* Contenedor principal */
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que el contenido sea responsivo */
+    animation: fadeIn 1.5s ease-in-out; /* Animación inicial */
+}
+
+/* Encabezado */
+.header {
+    position: absolute;
+    top: -40px;
+    left: 10px;
+    font-size: 14px;
+    color: #f5f5f5;
+}
+
+/* Contenido */
+.content {
+    text-align: center;
+    flex: 1;
+    animation: slideIn 2s ease-out; /* Animación de entrada */
+}
+
+.title {
+    color: #0078d7;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite; /* Movimiento oscilante */
+}
+
+.winner-name {
+    color: #0078d7;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.icon img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+    animation: spin 3s linear infinite; /* Rotación del ícono */
+}
+
+.congratulations {
+    color: #0078d7;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: #ffaf42;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #e09134;
+    transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Robot decorativo */
+.robot img {
+    width: 120px;
+    height: auto;
+    animation: float 3s ease-in-out infinite; /* Movimiento flotante */
+}
+
+.robot {
+    margin-left: 20px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .robot img {
+        width: 80px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .winner-name, .congratulations {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}

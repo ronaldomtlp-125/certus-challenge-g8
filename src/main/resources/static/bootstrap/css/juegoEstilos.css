@@ -12,8 +12,8 @@ body{
   width: 100%;
   background-image: url("https://img.freepik.com/vector-gratis/fondo-degradado-lineas-azules-dinamicas_23-2148995756.jpg?ga=GA1.1.470321535.1731262247&semt=ais_hybrid");
   background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 /* JUGADORES */
 .jugador1{
