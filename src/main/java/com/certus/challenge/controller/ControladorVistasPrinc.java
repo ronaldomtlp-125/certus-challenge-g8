@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ControladorVistasPrinc {
 	
+	@GetMapping("/")
+	public String index() {
+		return pantallaInicio();
+	}
+
 	@GetMapping("/inicio")
 	public String pantallaInicio() {
 		return "/inicio/inicioPrin";
