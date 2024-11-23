@@ -52,5 +52,9 @@ public class ControladorVistasPrinc {
 	public String menuPausa() {
 		return "/ventanas/juego/Menu de pausa";
 	}
-	
+
+	@GetMapping("/mercado")
+	public String mercadoElementos() {
+		return "/ventanas/juego/Mercado de elementos";
+	}
 }

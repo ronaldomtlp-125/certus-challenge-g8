@@ -1,0 +1,170 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://media.istockphoto.com/id/1401659561/es/foto/acuarela-abstracta-azul-negro-fondo-de-arte-azul-oscuro-con-espacio-para-el-dise%C3%B1o-mancha.jpg?s=612x612&w=0&k=20&c=N19W0JNGaJeIWPdg5m_MX4BXWP8wZXKuEyoGtDT22Rs=');
+}
+
+.menu-container {
+    width: 700px;
+    height: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #8d9399;
+    box-shadow: 8px 2px 12px 5px #ffffff;
+    text-align: center;
+    left: 280px;
+    position: relative;
+    margin-top: 400px;
+    margin-bottom: 200px;
+}
+
+.menu-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff;
+    position: relative;
+    background-color: #4323d5;
+    box-shadow: 8px 2px 12px 5px #21127f;
+    border-radius: 20px;
+    width: 450px;
+    margin-left: 100px;
+    font-family: 'Montserrat';
+
+}
+
+.menu-buttons {
+    margin-bottom: 20px;
+    margin-top: 40px;
+    position: relative;
+}
+
+.menu-button {
+    width: 180px;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+
+}
+
+.menu-button:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.menu-button2 {
+    width: 180px;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+
+}
+
+.menu-button2:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.menu-button3 {
+    width: 180px;
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+ 
+}
+.menu-button3:hover {
+    transform: scale(1.1, 1.1);
+}
+
+.menu-button.btn-productos {
+    background-color: #4323d5;
+    box-shadow: 8px 2px 12px 5px #21127f;
+}
+
+.menu-button2.btn-proyectos {
+    background-color: #4323d5;
+    box-shadow: 8px 2px 12px 5px #21127f;
+}
+
+.menu-button3.btn-recursos {
+    background-color: #4323d5;
+    box-shadow: 8px 2px 12px 5px #21127f;
+}
+
+.menu-button.btn-continuar {
+    background-color: #ff9900;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    top: 500px;
+    width: 150px;
+    left: -100px;
+    font-family: 'Poppins';
+    color: black;
+
+}
+
+.menu-button.btn-continuar:hover {
+    background-color: #976110;
+    text-decoration: none;
+}
+
+.info-section {
+    margin-top: 20px;
+    text-align: left;
+    background-color:#ffffff;
+    max-height: 380px;
+    overflow-y:auto;
+
+}
+
+.info-section2 {
+    margin-top: 20px;
+    text-align: left;
+    background-color: #ffffff;
+
+
+}
+
+.info-section3 {
+    margin-top: 20px;
+    text-align: left;
+    background-color: #ffffff;
+
+}
+
+
+.cuadro{
+    border-color: black;
+
+}
+
+
+.d-none {
+    display: none;
+}
