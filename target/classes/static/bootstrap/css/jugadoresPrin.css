@@ -40,6 +40,7 @@ body::before {
     word-break: break-all;
     background: linear-gradient(45deg, #00a8ff, #0097e6);
     -webkit-background-clip: text;
+    background-clip: none; 
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0px 20px rgba(0,168,255,0.4);
 }

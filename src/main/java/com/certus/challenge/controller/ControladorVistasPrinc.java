@@ -3,10 +3,14 @@ package com.certus.challenge.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-
 @Controller
 public class ControladorVistasPrinc {
 	
+	@GetMapping("/")
+	public String index() {
+		return pantallaInicio();
+	}
+
 	@GetMapping("/inicio")
 	public String pantallaInicio() {
 		return "/inicio/inicioPrin";
@@ -48,5 +52,9 @@ public class ControladorVistasPrinc {
 	public String menuPausa() {
 		return "/ventanas/juego/Menu de pausa";
 	}
-	
+
+	@GetMapping("/mercado")
+	public String mercadoElementos() {
+		return "/ventanas/juego/Mercado de elementos";
+	}
 }

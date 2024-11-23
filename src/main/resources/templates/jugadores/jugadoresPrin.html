@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org"></html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
         <section class="row">
             <nav class="col-md-3 d-flex flex-column gap-2 mb-5" aria-label="Menú principal">
                 <a th:href="@{/juego}"><button class="menu-button">Jugar</button></a>
-                <a th:href="@{/}"><button class="menu-button">Añadir Jugador</button></a>
+                <button class="menu-button" id="add-player-button">Añadir Jugador</button>
                 <a th:href="@{/info}"><button class="menu-button">Reglas y Contexto</button></a>
                 <a th:href="@{/jugadoresselect}"><button class="menu-button">Selección de Personajes</button></a>
                 <a th:href="@{/inicio}"><button class="menu-button">Regresar</button></a>
@@ -31,7 +31,7 @@
             <section class="col-md-9">
                 <h2 class="players-title">Jugadores</h2>
                 <div class="players-grid">
-                    <article class="player-card mt-4">
+                    <article class="player-card mt-4" id="player-1">
                         <img class="player-top-img" src="https://m.media-amazon.com/images/I/31wkcwha+xL._AC_.jpg"
                             alt="Jugador 1">
                         <h3 class="player-name">Carlos Quinto</h3>
@@ -40,25 +40,31 @@
                             alt="El Viajero" class="character-image">
                         <p class="character-description">Un explorador intrépido que ha cruzado continentes y océanos, llevando consigo secretos ancestrales y un espíritu indomable.</p>
                     </article>
-                    <article class="player-card mt-4">
+
+                    <!-- Jugador 2 -->
+                    <article class="player-card mt-4" id="player-2" style="display: none;">
                         <img class="player-top-img" src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jugador 2">
-                        <h3 class="player-name">Alex Vera</h3>
+                        <h3 class="player-name" contenteditable="true">Alex Vera</h3>
                         <h4 class="character-name">El Guerrero del Sol</h4>
                         <img src="https://img.freepik.com/vector-premium/silueta-guerrero-samurai-japones-espada-pie-puesta-sol-lamina-artistica_194708-1866.jpg"
                             alt="El Guerrero del Sol" class="character-image">
                         <p class="character-description">Un valiente defensor de su pueblo, armado con la fuerza del sol y el coraje de un líder nato. Su espada brilla como el amanecer.</p>
                     </article>
-                    <article class="player-card mt-4">
+
+                    <!-- Jugador 3 -->
+                    <article class="player-card mt-4" id="player-3" style="display: none;">
                         <img class="player-top-img" src="https://randomuser.me/api/portraits/men/33.jpg" alt="Jugador 3">
-                        <h3 class="player-name">Luis Pérez</h3>
+                        <h3 class="player-name" contenteditable="true">Luis Pérez</h3>
                         <h4 class="character-name">El Mago del Bosque</h4>
                         <img src="https://img.freepik.com/vector-premium/mago-bosque_78308-31.jpg"
                             alt="El Mago del Bosque" class="character-image">
                         <p class="character-description">Un hechicero misterioso que controla los secretos de la naturaleza y convoca criaturas fantásticas desde lo más profundo del bosque.</p>
                     </article>
-                    <article class="player-card mt-4">
+
+                    <!-- Jugador 4 -->
+                    <article class="player-card mt-4" id="player-4" style="display: none;">
                         <img class="player-top-img" src="https://randomuser.me/api/portraits/women/22.jpg" alt="Jugador 4">
-                        <h3 class="player-name">Marta Fernández</h3>
+                        <h3 class="player-name" contenteditable="true">Marta Fernández</h3>
                         <h4 class="character-name">La Sombra del Viento</h4>
                         <img src="https://lh3.googleusercontent.com/proxy/dToCoPWfQNmwDiHe0i1_5ZMP99rQ_AQvymf6d7lZD1QH0tmVM1tKJQDrPzS_zszJcEHbDcnY7aaMekqIcBjFi5cSCECUslhaqmrCiHhpoaAtA5H2rnZWcpV1yPXhjCP-FRCNkmzacSzhlQ"
                             alt="La Sombra del Viento" class="character-image">
@@ -68,12 +74,21 @@
             </section>
         </section>
     </main>
-    
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-</body>
 
+    <script>
+        let currentPlayerIndex = 1;
+
+        document.getElementById('add-player-button').addEventListener('click', function() {
+            if (currentPlayerIndex < 4) {
+                currentPlayerIndex++;
+                const playerElement = document.getElementById('player-' + currentPlayerIndex);
+                playerElement.style.display = 'block';
+            }
+        });
+    </script>
+</body>
 </html>
