@@ -1,46 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<link rel="icon" href="favicon.ico" />
 
-<title>INICIO-vista</title>
-<!-- Bootstrap core CSS -->
-<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
-<!-- Custom styles for this template -->
-<link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet" />
-<!--<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet" /> -->
-<link rel="stylesheet" th:href="@{bootstrap/css/inicio.css}" />
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<link rel="icon" href="favicon.ico" />
+	<title>INICIO-vista</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-	<!--<div class="card" style="width: 18rem;">
-		<img src="..." class="card-img-top" alt="...">
-		<div class="card-body">
-			<h5 class="card-title">Card title</h5>
-			<p class="card-text">Some quick example text to build on the card
-				title and make up the bulk of the card's content.</p>
-			<a href="#" class="btn btn-primary">Go somewhere</a>
+	<br><br>
+	<div class="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
+		<div class="absolute inset-0">
+			<img src="https://t3.ftcdn.net/jpg/00/73/08/22/360_F_73082224_ay4Tus31QNHNmGSIty53ZE6mBrBc47cV.jpg"
+				alt="Background Image" class="object-cover object-center w-full h-full" />
+			<div class="absolute inset-0 bg-black opacity-50"></div>
 		</div>
-	</div> -->
-	<main class="fondo">
-		<article class="contenedor">
-			<h1 class="titulo">CHALLENGE</h1>
-			<section class="contenedor_img">
+		<div class="relative z-10 flex flex-col justify-center items-center h-full text-center">
+			<h1 class="text-5xl font-bold leading-tight mb-4">CHALLENGE</h1>
+			<section class="dado-image">
 				<img th:src="@{/bootstrap/images/fondo2.jpg}" alt="imgInicio2" />
 			</section>
-			<section class="botones">
-				<a th:href="@{inicio/jugadores}">Nuevo Juego</a> <a
-					href="https://www.doctums.com/" target="_blank">Sobre Doctums</a>
+			<p class="text-lg text-gray-300 mb-8">Game in Progress</p>
+			<section class="buttons">
+				<a th:href="@{inicio/jugadores}"
+					class="bg-purple-600 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg">
+					NUEVO JUEGO</a>
+				<a href="https://www.doctums.com/"
+					class="bg-blue-600 text-gray-900 py-2 px-6 rounded-full text-lg font-semibold">
+					SOBRE DOCTUMS</a>
 			</section>
-		</article>
-	</main>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+		</div>
+	</div>
 </body>
+
 </html>
