@@ -1,147 +1,199 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Challenge - Selección de Personajes</title>
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #333;
-            color: white;
-        }
-
-        h1, h2 {
-            background-color: #fff;
-            color: #000;
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .jugador, .personaje {
-            background-color: #fff;
-            color: #000;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        #btn-regresar {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        footer {
-            margin-top: 20px;
-            color: #aaa;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    <div class="container position-relative">
-        <!-- Botón Regresar -->
-        <a th:href="@{/inicio/jugadores}"><button id="btn-regresar" class="btn btn-secondary ml-5">Regresar</button></a>
-
-        <h1 class="text-center my-4">CHALLENGE</h1>
-        <h2 class="text-center mb-4">Selección de personajes</h2>
-
-        <div class="row mb-3">
-            <div class="col-md-12">
-                <div class="row g-3">
-                    <div class="col-md-3">
-                        <div class="jugador">
-                            <h5>Carlos Quinto</h5>
-                            <p>Ferrocarril</p>
-                            <img th:src="@{/bootstrap/images/Pictograma_Tren.png}" alt="Pictograma Tren" class="img-fluid rounded">
-                        </div>
+    <div class="bg-gradient-to-r from-blue-200 to-orange-100 text-black">
+        <section class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-4 py-12">
+            <div class="text-center pb-12">
+                <h2 class="text-base font-bold text-black-600">
+                    CHALLENGE
+                </h2>
+                <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-black bg-white rounded-full">
+                    SELECCIÓN DE PERSONAJES
+                </h1>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="w-full bg-gradient-to-r from-neutral-600 to-black rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                    <p class="text-xl text-black font-bold mb-3 bg-white rounded-lg p-4">Carlos Quinto</p>
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-lg h-36 w-36"
+                            th:src="@{/bootstrap/images/Pictograma_Tren.png}" alt="Pictograma Tren">
                     </div>
-                    <div class="col-md-3">
-                        <div class="jugador">
-                            <h5>Maria</h5>
-                            <p>carro</p>
-                            <img th:src="@{bootstrap/images/png-transparent-car-toyota-computer-icons-car-thumbnail.png}" alt="Pictograma Tren" class="img-fluid rounded">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="jugador">
-                            <h5>Nicolas</h5>
-                            <p>Moto</p>
-                            
-                            <img th:src="@{bootstrap/images/cruiser-motorbike-silhouette-58532c.webp}" alt="Pictograma Tren" class="img-fluid rounded">
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="jugador">
-                            <h5>Victoria</h5>
-                            <p>Avión</p>
-                            <img th:src="@{bootstrap/images/images.png}" alt="Pictograma_Tren" class="img-fluid rounded">
-                        </div>
+                    <div class="text-center">
+                        <p class="text-base text-white font-bold">Ferrocarril</p>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row g-3">
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Perro</h6>
-                    <p>Un valiente perro de lealtad inquebrantable, siempre listo para proteger y correr al rescate.</p>
+                <div class="w-full bg-gradient-to-r from-black to-neutral-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                    <p class="text-xl text-black font-bold mb-3 bg-white rounded-lg p-4">Alex Vera</p>
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-lg h-36 w-36"
+                            th:src="@{bootstrap/images/png-transparent-car-toyota-computer-icons-car-thumbnail.png}"
+                            alt="Pictograma Carro">
+                    </div>
+                    <div class="text-center">
+                        <p class="text-base text-white font-bold">Carro</p>
+                    </div>
+                </div>
+                <div class="w-full bg-gradient-to-r from-neutral-600 to-black rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                    <p class="text-xl text-black font-bold mb-3 bg-white rounded-lg p-4">Luis Pérez</p>
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-lg h-36 w-36" img
+                            src="https://img.freepik.com/vector-premium/vector-icono-motocicleta_535345-5735.jpg"
+                            alt="Pictograma Moto">
+                    </div>
+                    <div class="text-center">
+                        <p class="text-base text-white font-bold">Moto</p>
+                    </div>
+                </div>
+                <div class="w-full bg-gradient-to-r from-black to-neutral-600 rounded-lg sahdow-lg p-12 flex flex-col justify-center items-center">
+                    <p class="text-lg text-black font-bold mb-3 bg-white rounded-lg p-4">Marta Fernández</p>
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-lg h-36 w-36"
+                            th:src="@{bootstrap/images/images.png}" alt="Pictograma Avión">
+                    </div>
+                    <div class="text-center">
+                        <p class="text-base text-white font-bold">Moto</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Gato</h6>
-                    <p>Un astuto y ágil gato con reflejos relámpago, capaz de deslizarse entre sombras y sorprender a sus enemigos con rapidez felina.</p>
+            <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Perro
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un valiente perro de lealtad inquebrantable, siempre listo para proteger y correr al
+                            rescate.</p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Gato
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un astuto y ágil gato con reflejos relámpago, capaz de deslizarse entre sombras y sorprender
+                            a sus enemigos con rapidez felina.</p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Carro
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un carro veloz y resistente, diseñado para desafiar cualquier terreno con potencia y estilo.
+                        </p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Pato
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un pato travieso y audaz, siempre listo para nadar hacia la aventura y sorprender con su
+                            astucia. </p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Pan
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un pan dorado y crujiente, siempre fresco y listo para darle sabor a cualquier aventura.</p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje jugo
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Un jugo refrescante y lleno de sabor, la mezcla perfecta de frutas que revitaliza en cada
+                            sorbo.</p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Caja
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Una caja misteriosa, llena de sorpresas y secretos esperando ser descubiertos.</p>
+                    </div>
+                </article>
+                <article
+                    class="bg-zinc-900 group relative rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform duration-200">
+                    <div class="px-3 py-4">
+                        <h3 class="text-center text-gray-500 pb-2">
+                            <a class="py-1 px-2 text-white rounded-lg text-2xl" href="#">
+                                <span class="absolute inset-0"></span>
+                                Personaje Gorra
+                            </a>
+                        </h3>
+                        <p class="text-center font-semibold text-black group-hover:text-indigo-600 bg-white rounded-lg">
+                            Una gorra elegante y cómoda, perfecta para protegerte del sol con estilo en cualquier
+                            aventura.</p>
+                    </div>
+                </article>
+            </section>
+            <div class="absolute bottom-0 left-0 p-4">
+                <div class="relative inline-flex group">
+                    <div
+                        class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200">
+                    </div>
+                    <a th:href="@{/inicio/jugadores}"
+                        class="relative inline-flex items-center justify-center px-5 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-600 rounded">
+                        Regresar
+                    </a>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Carro</h6>
-                    <p>Un carro veloz y resistente, diseñado para desafiar cualquier terreno con potencia y estilo.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Pato</h6>
-                    <p>Un pato travieso y audaz, siempre listo para nadar hacia la aventura y sorprender con su astucia.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Pan</h6>
-                    <p>Un pan dorado y crujiente, siempre fresco y listo para darle sabor a cualquier aventura.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Jugo</h6>
-                    <p>Un jugo refrescante y lleno de sabor, la mezcla perfecta de frutas que revitaliza en cada sorbo.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Caja</h6>
-                    <p>Una caja misteriosa, llena de sorpresas y secretos esperando ser descubiertos.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="personaje">
-                    <h6>Personaje Gorra</h6>
-                    <p>Una gorra elegante y cómoda, perfecta para protegerte del sol con estilo en cualquier aventura.</p>
-                </div>
-            </div>
-        </div>
-
-        <footer class="text-center mt-4">
-            By Doctums
-        </footer>
+        </section>
+    </div>
     </div>
 
     <!-- Enlace a Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
