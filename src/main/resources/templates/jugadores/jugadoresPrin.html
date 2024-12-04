@@ -15,6 +15,8 @@
 
 <!-- Custom CSS -->
 <link th:href="@{/bootstrap/css/jugadoresPrin.css}" rel="stylesheet">
+<!-- info del juego -->
+<link th:href="@{bootstrap/css/Info del juego.css}" rel="stylesheet">
 </head>
 
 <body>
@@ -33,13 +35,11 @@
 					Jugador</button>
 				<button id="openModal" class="menu-button">Reglas y
 					Contexto</button>
-				<!-- Ventana de reglas y contexto -->
+				<!-- info del juego -->
 				<div id="myModal" class="modal">
 					<div class="modal-content">
 						<span class="close">&times;</span>
-						<h2>Contenido de la Ventana</h2>
-						<p>Aquí puedes agregar cualquier información o elementos
-							interactivos.</p>
+						<div th:replace="ventanas/juego/Info del juego"></div>
 					</div>
 				</div>
 				<a th:href="@{/jugadoresselect}"><button class="menu-button">Selección

@@ -16,10 +16,11 @@ public class ControladorVistasPrinc {
 		return "/inicio/inicioPrin";
 	}
 	
+	/*
 	@GetMapping("/inicio/jugadores")
 	public String pantallaJugadores() {
 		return "/jugadores/jugadoresPrin";
-	}
+	}*/
 	
 	
 	@GetMapping("/juego")

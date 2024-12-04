@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Juego</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Archivo CSS externo -->
-    <link rel="stylesheet" th:href="@{bootstrap/css/Info del juego.css}">
-</head>
-
-<body>
+<div th:fragment="info-juego">
     <div class="main-box text-center">
         <h2>Sobre el juego</h2>
         <div class="d-flex justify-content-around mt-4">
@@ -81,6 +68,4 @@
             `;
         });
     </script>
-</body>
-
-</html>
+</div>
