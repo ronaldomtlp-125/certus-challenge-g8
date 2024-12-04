@@ -1,27 +1,175 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="favicon.ico">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<title>JUGADORES-vista</title>
-<!-- Bootstrap core CSS -->
-<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
-<!-- Custom styles for this template -->
-<link th:href="@{bootstrap/css/jumbotron.css}" rel="stylesheet">
-<link href="@{bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jugadores</title>
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+
+<!-- Custom CSS -->
+<link th:href="@{/bootstrap/css/jugadoresPrin.css}" rel="stylesheet">
 </head>
 
 <body>
+	<header class="container text-center">
+		<h1 class="title fw-bold">CHALLENGE - VISTA DE JUGADORES</h1>
+	</header>
 
-	<h1>VISTA DE JUGADORES</h1>
+	<main class="container">
+		<section class="row">
+			<nav class="col-md-3 d-flex flex-column gap-2 mb-5"
+				aria-label="Menú principal">
+				<a th:href="@{/juego}"><button class="menu-button">Jugar</button></a>
+				<button class="menu-button" id="add-player-button">Añadir
+					Jugador</button>
+				<button class="menu-button" id="remove-player-button">Quitar
+					Jugador</button>
+				<button id="openModal" class="menu-button">Reglas y
+					Contexto</button>
+				<!-- Ventana de reglas y contexto -->
+				<div id="myModal" class="modal">
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						<h2>Contenido de la Ventana</h2>
+						<p>Aquí puedes agregar cualquier información o elementos
+							interactivos.</p>
+					</div>
+				</div>
+				<a th:href="@{/jugadoresselect}"><button class="menu-button">Selección
+						de Personajes</button></a> <a th:href="@{/inicio}"><button
+						class="menu-button">Regresar</button></a>
+			</nav>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
-	 
+			<section class="col-md-9">
+				<h2 class="players-title">Jugadores</h2>
+				<div class="players-grid">
+					<article class="player-card mt-4" id="player-1">
+						<img class="player-top-img"
+							src="https://m.media-amazon.com/images/I/31wkcwha+xL._AC_.jpg"
+							alt="Jugador 1">
+						<h3 class="player-name">Carlos Quinto</h3>
+						<h4 class="character-name">El Viajero</h4>
+						<img
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvjHRKPlbr8YLaXsoCHE1uQdDur1PAfbZksg&s"
+							alt="El Viajero" class="character-image">
+						<p class="character-description">Un explorador intrépido que
+							ha cruzado continentes y océanos, llevando consigo secretos
+							ancestrales y un espíritu indomable.</p>
+					</article>
+
+					<!-- Jugador 2 -->
+					<article class="player-card mt-4" id="player-2"
+						style="display: none;">
+						<img class="player-top-img"
+							src="https://randomuser.me/api/portraits/men/45.jpg"
+							alt="Jugador 2">
+						<h3 class="player-name" contenteditable="true">Alex Vera</h3>
+						<h4 class="character-name">El Guerrero del Sol</h4>
+						<img
+							src="https://img.freepik.com/vector-premium/silueta-guerrero-samurai-japones-espada-pie-puesta-sol-lamina-artistica_194708-1866.jpg"
+							alt="El Guerrero del Sol" class="character-image">
+						<p class="character-description">Un valiente defensor de su
+							pueblo, armado con la fuerza del sol y el coraje de un líder
+							nato. Su espada brilla como el amanecer.</p>
+					</article>
+
+					<!-- Jugador 3 -->
+					<article class="player-card mt-4" id="player-3"
+						style="display: none;">
+						<img class="player-top-img"
+							src="https://randomuser.me/api/portraits/men/33.jpg"
+							alt="Jugador 3">
+						<h3 class="player-name" contenteditable="true">Luis Pérez</h3>
+						<h4 class="character-name">El Mago del Bosque</h4>
+						<img
+							src="https://img.freepik.com/vector-premium/mago-bosque_78308-31.jpg"
+							alt="El Mago del Bosque" class="character-image">
+						<p class="character-description">Un hechicero misterioso que
+							controla los secretos de la naturaleza y convoca criaturas
+							fantásticas desde lo más profundo del bosque.</p>
+					</article>
+
+					<!-- Jugador 4 -->
+					<article class="player-card mt-4" id="player-4"
+						style="display: none;">
+						<img class="player-top-img"
+							src="https://randomuser.me/api/portraits/women/22.jpg"
+							alt="Jugador 4">
+						<h3 class="player-name" contenteditable="true">Marta
+							Fernández</h3>
+						<h4 class="character-name">La Sombra del Viento</h4>
+						<img
+							src="https://lh3.googleusercontent.com/proxy/dToCoPWfQNmwDiHe0i1_5ZMP99rQ_AQvymf6d7lZD1QH0tmVM1tKJQDrPzS_zszJcEHbDcnY7aaMekqIcBjFi5cSCECUslhaqmrCiHhpoaAtA5H2rnZWcpV1yPXhjCP-FRCNkmzacSzhlQ"
+							alt="La Sombra del Viento" class="character-image">
+						<p class="character-description">Silenciosa y astuta, su
+							habilidad para moverse entre las sombras la convierte en una
+							espía insuperable, siempre un paso adelante de sus enemigos.</p>
+					</article>
+				</div>
+			</section>
+		</section>
+	</main>
+
+	<script>
+	// Seleccionar elementos
+	const modal = document.getElementById("myModal");
+	const openModalButton = document.getElementById("openModal");
+	const closeModalButton = document.querySelector(".close");
+
+	// Abrir la ventana al hacer clic en el botón
+	openModalButton.addEventListener("click", () => {
+	  modal.style.display = "block";
+	});
+
+	// Cerrar la ventana al hacer clic en la 'x'
+	closeModalButton.addEventListener("click", () => {
+	  modal.style.display = "none";
+	});
+
+	// Cerrar la ventana al hacer clic fuera del contenido
+	window.addEventListener("click", (event) => {
+	  if (event.target === modal) {
+	    modal.style.display = "none";
+	  }
+	});
+	</script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script>
+		let currentPlayerIndex = 1;
+
+		document.getElementById('add-player-button').addEventListener(
+				'click',
+				function() {
+					if (currentPlayerIndex < 4) {
+						currentPlayerIndex++;
+						const playerElement = document.getElementById('player-'
+								+ currentPlayerIndex);
+						playerElement.style.display = 'block';
+					}
+				});
+		document.getElementById('remove-player-button').addEventListener(
+				'click',
+				function() {
+					if (currentPlayerIndex > 1) {
+						const playerElement = document.getElementById('player-'
+								+ currentPlayerIndex);
+						playerElement.style.display = 'none';
+						currentPlayerIndex--;
+					}
+				});
+	</script>
+
 </body>
+
 </html>

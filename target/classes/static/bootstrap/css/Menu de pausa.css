@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8f9fa;
+    background-image: url('https://media.istockphoto.com/id/1401659561/es/foto/acuarela-abstracta-azul-negro-fondo-de-arte-azul-oscuro-con-espacio-para-el-dise%C3%B1o-mancha.jpg?s=612x612&w=0&k=20&c=N19W0JNGaJeIWPdg5m_MX4BXWP8wZXKuEyoGtDT22Rs=');
+
+}
+
+.menu-container {
+    width: 750px;
+    height: 150px;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: #8d9399;
+    box-shadow: 8px 2px 12px 5px #ffffff;
+}
+
+.menu-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #343a40;
+    top: -65px;
+    position: relative;
+    font-size: 40px;
+    background-color: #6c757d;
+    border-radius: 20px;
+    box-shadow: 8px 2px 12px 5px #21127f;
+    width: 350px;
+    margin-left: 155px;
+    background-color: #4323d5;
+    color: #f8f9fa;
+    font-family: 'Montserrat';
+}
+
+.menu-button {
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+    margin-right:450px ;
+    top: -70px;
+    background-color: #4323d5;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+
+}
+
+.menu-button:hover{
+    transform: scale(1.2, 1.2);
+}
+
+.menu-button2 {
+
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+    top: -143px;
+    background-color: #4323d5;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+
+}
+
+.menu-button2:hover{
+    transform: scale(1.2, 1.2);
+}
+
+.menu-button3 {
+
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 5px;
+    gap: 10px;
+    position: relative;
+    margin-left: 450px;
+    bottom: 217px;
+    font-family: 'Poppins';
+    transition: box-shadow 0.3s, transform 0.3s;
+
+
+}
+
+.menu-button3:hover{
+    transform: scale(1.2,1.2);
+}
+
+.menu-button i {
+    font-size: 1.5rem;
+}
+
+.btn-reanudar {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-reiniciar {
+    background-color: #f7bd10;
+    color: white;
+}
+
+.btn-salir {
+    background-color: #dc3545;
+    color: white;
+}

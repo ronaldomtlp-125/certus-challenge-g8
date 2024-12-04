@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Juego</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Archivo CSS externo -->
+    <link rel="stylesheet" th:href="@{bootstrap/css/Info del juego.css}">
+</head>
+
+<body>
+    <div class="main-box text-center">
+        <h2>Sobre el juego</h2>
+        <div class="d-flex justify-content-around mt-4">
+            <button id="btnContexto" class="btn btn-custom btn-outline-primary">Contexto</button>
+        </div>
+        <div class="d-flex justify-content-around mt-4">
+            <button id="btnReglas" class="btn btn-custom2 btn-outline-primary">Reglas</button>
+        </div>
+        <div id="scrollContent" class="scroll-box mt-4" style="display: none;">
+            <p id="contentText">Selecciona un botón para ver la información.</p>
+        </div>
+
+    </div>
+
+    <div class="mt-4 Boton ">
+        <p class="contentText">Mira el tutorial <Br> en nuestro canal:</p>
+        <a href="https://www.youtube.com/" target="_blank" class="youtube-btn">
+            <i class="bi bi-youtube"></i> YouTube
+        </a>
+    </div>
+
+    <a th:href="@{/inicio/jugadores}" class="back-btn">
+        <i class="bi bi-arrow-left-circle"></i> Regresar
+    </a>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btnContexto = document.getElementById('btnContexto');
+        const btnReglas = document.getElementById('btnReglas');
+        const scrollContent = document.getElementById('scrollContent');
+        const contentText = document.getElementById('contentText');
+
+        btnContexto.addEventListener('click', () => {
+            scrollContent.style.display = 'block';
+            contentText.innerHTML = `
+               <div style="text-align: center; font-weight: bold;">
+            ¡Bienvenido al Juego de Estrategia Empresarial!
+        </div>
+        <div style="text-align: left; margin-top: 10px;">
+            En este juego, te pondrás en los zapatos de un emprendedor visionario que busca llevar su empresa al éxito en un entorno competitivo. Tu misión es desarrollar productos innovadores, liderar proyectos desafiantes y gestionar recursos de manera eficiente para alcanzar los objetivos de la empresa y superar a la competencia.
+            A lo largo del juego, te enfrentarás a eventos imprevistos que pondrán a prueba tu capacidad de adaptación y toma de decisiones estratégicas. Cada trimestre, nuevos desafíos y oportunidades surgirán, y deberás decidir cómo asignar tus recursos para maximizar el rendimiento y minimizar los riesgos. Tendrás la posibilidad de invertir en distintos productos, proyectos y mejoras para tu empresa, pero recuerda que los recursos son limitados, así que administra con sabiduría.
+        </div>`;
+        });
+
+        btnReglas.addEventListener('click', () => {
+            scrollContent.style.display = 'block';
+            contentText.innerHTML = `
+                 <div style="text-align: center; font-weight: bold;">
+            Reglas del Juego de <br> Estrategia Empresarial
+        </div>
+        <div style="text-align: left; margin-top: 10px;">
+            1. Gestión de Recursos<br>
+            2. Los recursos son limitados y se deben administrar de manera eficiente para cumplir los objetivos.<br>
+            3. Puedes invertir en distintos tipos de recursos, como productos, proyectos y mejoras para la empresa.<br>
+            4. Productos<br>
+            5. Cada producto tiene un costo y puede requerir otros productos previos para ser desarrollados.<br>
+            6. Algunos productos aumentan la eficiencia de la empresa, lo que te permitirá completar proyectos más fácilmente.<br>
+            7. No puedes invertir en un producto si no cumples con los requisitos necesarios.<br>
+            8. Proyectos<br>
+            9. Los proyectos requieren recursos específicos, como productos o tiempo, para ser completados.<br>
+            10. Cada proyecto tiene un costo y un tiempo de duración; asegúrate de planificar en consecuencia.<br>
+            11. Completar un proyecto con éxito te otorgará recompensas.<br>
+        </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>

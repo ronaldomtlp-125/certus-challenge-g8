@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ControladorVistasPrinc {
 	
+	@GetMapping("/")
+	public String index() {
+		return pantallaInicio();
+	}
+
 	@GetMapping("/inicio")
 	public String pantallaInicio() {
 		return "/inicio/inicioPrin";
@@ -22,13 +27,34 @@ public class ControladorVistasPrinc {
 		return "/juego/juegoPrin";
 	}
 	
-	@GetMapping("/juego/resultados")
+	@GetMapping("/resultados")
 	public String pantallaResultados() {
-		return "/resultado/resultadoPrin";
+		return "/resultado/Tabla de resultados";
 	}
 	
 	@GetMapping("/juego/resultados/ganador")
 	public String pantallaGanador() {
-		return "/ganador/ganadorPrin";
+		return "/ganador/ganador";
+	}
+
+	// Lucio testea en esta ruta tu vista
+	@GetMapping("/jugadoresselect")
+	public String ventanasTest() {
+		return "/ventanas/jugadores/selectorPrin"; // ruta de la carpeta
+	}
+	
+	@GetMapping("/info")
+	public String ventanaJuego() {
+		return "/ventanas/juego/Info del juego";
+	}
+
+	@GetMapping("/pausa")
+	public String menuPausa() {
+		return "/ventanas/juego/Menu de pausa";
+	}
+
+	@GetMapping("/mercado")
+	public String mercadoElementos() {
+		return "/ventanas/juego/Mercado de elementos";
 	}
 }
