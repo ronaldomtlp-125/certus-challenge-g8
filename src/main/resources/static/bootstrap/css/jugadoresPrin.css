@@ -187,6 +187,7 @@ body::before {
   border-radius: 8px;
   width: 400px;
   text-align: center;
+  color: black;
 }
 
 /* Botón de cierre */
@@ -196,4 +197,8 @@ body::before {
   right: 15px;
   font-size: 18px;
   cursor: pointer;
+  background-color: red;
+  padding: 5px;
+  border-radius: 20%;
+  color: white;
 }
