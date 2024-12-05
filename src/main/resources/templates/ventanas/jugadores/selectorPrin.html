@@ -8,20 +8,53 @@
     <!-- Enlace a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function enviarSeleccion() {
+            const seleccionados = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+            checkboxes.forEach((checkbox) => {
+                seleccionados.push(checkbox.value);
+            });
+
+            if (seleccionados.length !== 4) {
+                alert("Debes seleccionar exactamente 4 personajes.");
+                return;
+            }
+
+            // Enviar los IDs seleccionados al controlador
+            fetch('/inicio/guardarSeleccion', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ ids: seleccionados })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Selección enviada correctamente.");
+                    } else {
+                        alert("Error al enviar la selección.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al enviar la selección:", error);
+                    alert("Ocurrió un error al enviar los datos.");
+                });
+        }
+    </script>
 </head>
 
 <body>
     <div class="bg-gradient-to-r from-blue-200 to-orange-100">
         <section class="max-w-7xl mx-auto px-6 sm:px-6 lg:px-4 py-2">
             <div class="text-center">
-                <h2 class="text-base font-bold text-black-600">
-                    CHALLENGE
-                </h2>
                 <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-black bg-white rounded-full">
                     SELECCIÓN DE PERSONAJES
                 </h1>
             </div>
             <div class="p-1 flex flex-wrap items-center justify-center">
+                <!-- Tarjetas de personajes -->
                 <div class="flex-shrink-0 m-2 relative overflow-hidden bg-gray-600 rounded-lg max-w-xs shadow-lg group"
                     th:each="personaje : ${personajes}">
                     <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
@@ -39,14 +72,19 @@
                         <img class="relative w-40"
                             th:src="@{/bootstrap/images/personajes/{img} (img=${personaje.imgNombre})}" alt="">
                     </div>
-                    <div class="relative text-white px-6 pb-6 mt-6">
+                    <div class="relative text-white px-6 pb-6">
                         <div class="flex justify-center">
-                            <span class="block font-semibold text-xl" th:text="${personaje.nombre}"></span>
+                            <span class="block font-semibold text-xl accent-black"><input type="checkbox"
+                                    th:text="' ' + ${personaje.nombre}" th:value="${personaje.id}"></span>
                         </div>
                     </div>
                 </div>
+                <button onclick="enviarSeleccion()"
+                    class="px-5 bg-gray-600 text-white font-bold rounded-full hover:bg-gray-900 flex-shrink-0 m-2 relative overflow-hidden rounded-lg max-w-xs shadow-lg group">
+                    Enviar Selección
+                </button>
                 <section class="grid md:grid-cols-2 lg:grid-cols-4">
-                    <div class="flex-shrink-0 m-2 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group"
+                    <div class="flex-shrink-0 m-1 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group"
                         th:each="personaje : ${personajes}">
                         <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
                             viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
@@ -65,20 +103,21 @@
                         </div>
                     </div>
                 </section>
-                <div class="absolute bottom-0 left-0 p-4">
-                    <div class="relative inline-flex group">
-                        <div
-                            class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200">
-                        </div>
-                        <a th:href="@{/inicio/jugadores}"
-                            class="relative inline-flex items-center justify-center px-5 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-600 rounded">
-                            Regresar
-                        </a>
+            </div>
+            <div class="absolute bottom-0 left-0 p-4">
+                <div class="relative inline-flex group">
+                    <div
+                        class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200">
                     </div>
+                    <a th:href="@{/inicio/jugadores}"
+                        class="relative inline-flex items-center justify-center px-5 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-600 rounded">
+                        Regresar
+                    </a>
                 </div>
             </div>
         </section>
     </div>
+
     <!-- Enlace a Bootstrap JS (opcional) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
