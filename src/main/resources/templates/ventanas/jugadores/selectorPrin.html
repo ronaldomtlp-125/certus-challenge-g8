@@ -45,9 +45,9 @@
                         </div>
                     </div>
                 </div>
-                <section class="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8" >
-                    <div
-                        class="flex-shrink-0 m-2 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group" th:each="personaje : ${personajes}">
+                <section class="grid md:grid-cols-2 lg:grid-cols-4">
+                    <div class="flex-shrink-0 m-2 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group"
+                        th:each="personaje : ${personajes}">
                         <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
                             viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
                             <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
@@ -55,11 +55,11 @@
                             <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)"
                                 fill="white" />
                         </svg>
-                        <div class="relative text-white px-6 pb-6 mt-6">
-                            <span class="block opacity-75 -mb-1" th:text="'Personaje ' + ${personaje.nombre}"></span>
+                        <div class="relative text-white px-2 pb-6 mt-6">
+                            <span class="opacity-75 -mb-1 text-2xl" th:text="'Personaje ' + ${personaje.nombre}"></span>
                             <div class="flex justify-between">
                                 <span
-                                    class="block bg-white rounded-full text-black text-xs font-bold px-3 py-2 leading-none flex items-center"
+                                    class="bg-white rounded-full text-black text-base font-bold px-3 py-2 leading-none flex items-center"
                                     th:text="${personaje.descripcion}"></span>
                             </div>
                         </div>
@@ -76,6 +76,7 @@
                         </a>
                     </div>
                 </div>
+            </div>
         </section>
     </div>
     <!-- Enlace a Bootstrap JS (opcional) -->
