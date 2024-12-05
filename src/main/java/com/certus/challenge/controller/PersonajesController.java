@@ -21,7 +21,7 @@ public class PersonajesController {
 	IPersonajeService servicePersonaje;
 	
 
-	@GetMapping("/jugadores")
+	@GetMapping("/jugadoresselect")
 	public String devolverPersonajes(Model model){
 		List<PersonajeModel> personajes = servicePersonaje.obtenerPersonajes();
 		model.addAttribute("personajes", personajes);
