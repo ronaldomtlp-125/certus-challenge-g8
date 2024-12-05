@@ -27,9 +27,9 @@ public class PersonajesController {
 		model.addAttribute("personajes", personajes);
 		
 		//ruta original
-		return "/jugadores/jugadoresPrin";
+		// return "/jugadores/jugadoresPrin";
 		// ruta de prueba
-		//return "/jugadores/jugadoresPrinAux";
+		return "/ventanas/jugadores/selectorPrin";
 	}
 
 }
