@@ -9,49 +9,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function enviarSeleccion() {
-            const seleccionados = [];
-            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            const nombreUsuario = document.getElementById('nombreUsuario').value;
-
-            checkboxes.forEach((checkbox) => {
-                seleccionados.push(checkbox.value);
-            });
-
-            if (!nombreUsuario.trim()) {
-                alert("Debes ingresar tu nombre.");
-                return;
-            }
+        function validarSeleccion() {
+            const seleccionados = document.querySelectorAll('input[type="checkbox"]:checked');
+            const jugadores = [
+                document.getElementById('nombreJugador1').value.trim(),
+                document.getElementById('nombreJugador2').value.trim(),
+                document.getElementById('nombreJugador3').value.trim(),
+                document.getElementById('nombreJugador4').value.trim()
+            ];
 
             if (seleccionados.length !== 4) {
                 alert("Debes seleccionar exactamente 4 personajes.");
-                return;
+                return false;
             }
 
-            // Enviar los IDs seleccionados y el nombre del usuario
-            fetch('/inicio/guardarSeleccion', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    nombre: nombreUsuario,
-                    ids: seleccionados
-                })
-            })
-                .then(response => {
-                    if (response.ok) {
-                        alert("Selección enviada correctamente.");
+            if (jugadores.some(nombre => nombre === "")) {
+                alert("Debes ingresar los nombres de los 4 jugadores.");
+                return false;
+            }
 
-                        window.location.href = '/juego';
-                    } else {
-                        alert("Error al enviar la selección.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Error al enviar la selección:", error);
-                    alert("Ocurrió un error al enviar los datos.");
-                });
+            seleccionados.forEach((checkbox, index) => {
+                document.getElementById(`idJugador${index + 1}`).value = checkbox.value;
+            });
+
+            return true;
         }
     </script>
 </head>
@@ -63,44 +44,39 @@
                 <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-black bg-white rounded-full">
                     SELECCIÓN DE PERSONAJES
                 </h1>
-                <div class="text-center">
-                    <label for="nombreUsuario" class="block text-xl font-semibold">Nombre del Usuario:</label>
-                    <input id="nombreUsuario" type="text" class="border rounded-lg px-4"
-                        placeholder="Ingresa tu nombre">
-                </div>
+                <p class="text-gray-800 text-lg font-bold">Selecciona 4 personajes y asigna un nombre a cada jugador.</p>
             </div>
-            <div class="p-1 flex flex-wrap items-center justify-center">
-                <!-- Tarjetas de personajes -->
-                <div class="flex-shrink-0 m-2 relative overflow-hidden bg-gray-600 rounded-lg max-w-xs shadow-lg group"
-                    th:each="personaje : ${personajes}">
-                    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
-                        viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
-                        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
-                            fill="white" />
-                        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)"
-                            fill="white" />
-                    </svg>
-                    <div
-                        class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <div class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
-                            style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;">
+
+            <!-- Formulario -->
+            <form action="/inicio/guardarSeleccion" method="GET" onsubmit="return validarSeleccion()">
+                <div class="text-center">
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div>
+                            <label for="nombreJugador1" class="block text-xl font-semibold">Jugador 1:</label>
+                            <input id="nombreJugador1" name="nombreJugador1" type="text" class="border rounded-lg"
+                                placeholder="Jugador 1" required>
                         </div>
-                        <img class="relative w-40"
-                            th:src="@{/bootstrap/images/personajes/{img} (img=${personaje.imgNombre})}" alt="">
-                    </div>
-                    <div class="relative text-white px-6 pb-6">
-                        <div class="flex justify-center">
-                            <span class="block font-semibold text-xl accent-black"><input type="checkbox"
-                                    th:text="' ' + ${personaje.nombre}" th:value="${personaje.id}"></span>
+                        <div>
+                            <label for="nombreJugador2" class="block text-xl font-semibold">Jugador 2:</label>
+                            <input id="nombreJugador2" name="nombreJugador2" type="text" class="border rounded-lg"
+                                placeholder="Jugador 2" required>
+                        </div>
+                        <div>
+                            <label for="nombreJugador3" class="block text-xl font-semibold">Jugador 3:</label>
+                            <input id="nombreJugador3" name="nombreJugador3" type="text" class="border rounded-lg"
+                                placeholder="Jugador 3" required>
+                        </div>
+                        <div>
+                            <label for="nombreJugador4" class="block text-xl font-semibold">Jugador 4:</label>
+                            <input id="nombreJugador4" name="nombreJugador4" type="text" class="border rounded-lg"
+                                placeholder="Jugador 4" required>
                         </div>
                     </div>
                 </div>
-                <button onclick="enviarSeleccion()"
-                    class="px-5 bg-gray-600 text-white font-bold rounded-full hover:bg-gray-900 flex-shrink-0 m-2 relative overflow-hidden rounded-lg max-w-xs shadow-lg group">
-                    Enviar Selección
-                </button>
-                <section class="grid md:grid-cols-2 lg:grid-cols-4">
-                    <div class="flex-shrink-0 m-1 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group"
+
+                <div class="p-1 flex flex-wrap items-center justify-center">
+                    <!-- Tarjetas de personajes -->
+                    <div class="flex-shrink-0 m-2 relative overflow-hidden bg-gray-600 rounded-lg max-w-xs shadow-lg group"
                         th:each="personaje : ${personajes}">
                         <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
                             viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
@@ -109,29 +85,66 @@
                             <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)"
                                 fill="white" />
                         </svg>
-                        <div class="relative text-white px-2 pb-6 mt-6">
-                            <span class="opacity-75 -mb-1 text-2xl" th:text="'Personaje ' + ${personaje.nombre}"></span>
-                            <div class="flex justify-between">
-                                <span
-                                    class="bg-white rounded-full text-black text-base font-bold px-3 py-2 leading-none flex items-center"
-                                    th:text="${personaje.descripcion}"></span>
+                        <div
+                            class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <img class="relative w-40"
+                                th:src="@{/bootstrap/images/personajes/{img} (img=${personaje.imgNombre})}" alt="">
+                        </div>
+                        <div class="relative text-white px-6 pb-6">
+                            <div class="flex justify-center">
+                                <label class="block font-semibold text-xl">
+                                    <input type="checkbox" name="seleccion" th:data-nombre="${personaje.nombre}"
+                                        th:value="${personaje.id}">
+                                    <span th:text="${personaje.nombre}"></span>
+                                </label>
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <div class="absolute bottom-0 left-0 p-4">
-                <div class="relative inline-flex group">
-                    <div
-                        class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200">
-                    </div>
-                    <a th:href="@{/inicio/jugadores}"
-                        class="relative inline-flex items-center justify-center px-5 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-600 rounded">
-                        Regresar
-                    </a>
                 </div>
-            </div>
+
+                <!-- Campos ocultos para enviar los 4 IDs seleccionados -->
+                <input type="hidden" id="idJugador1" name="idJugador1">
+                <input type="hidden" id="idJugador2" name="idJugador2">
+                <input type="hidden" id="idJugador3" name="idJugador3">
+                <input type="hidden" id="idJugador4" name="idJugador4">
+                <div class="text-center">
+                    <button type="submit" class="px-5 bg-gray-600 text-white font-bold rounded-full hover:bg-gray-900">
+                        Enviar Selección
+                    </button>
+            </form>
+            <section class="grid md:grid-cols-2 lg:grid-cols-4">
+                <div class="flex-shrink-0 m-1 relative overflow-hidden bg-black rounded-lg max-w-xs shadow-lg group"
+                    th:each="personaje : ${personajes}">
+                    <svg class="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
+                        viewBox="0 0 375 283" fill="none" style="opacity: 0.1;">
+                        <rect x="159.52" y="175" width="152" height="152" rx="8" transform="rotate(-45 159.52 175)"
+                            fill="white" />
+                        <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)"
+                            fill="white" />
+                    </svg>
+                    <div class="relative text-white px-2 pb-6 mt-6">
+                        <span class="opacity-75 -mb-1 text-2xl" th:text="'Personaje ' + ${personaje.nombre}"></span>
+                        <div class="flex justify-between">
+                            <span
+                                class="bg-white rounded-full text-black text-base font-bold px-3 py-2 leading-none flex items-center"
+                                th:text="${personaje.descripcion}"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
         </section>
+        <div class="absolute bottom-0 left-0 p-4">
+            <div class="relative inline-flex group">
+                <div
+                    class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200">
+                </div>
+                <a th:href="@{/inicio/jugadores}"
+                    class="relative inline-flex items-center justify-center px-5 py-2 text-base font-bold text-white transition-all duration-200 bg-gray-900 border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 hover:bg-gray-600 rounded">
+                    Regresar
+                </a>
+            </div>
+        </div>
     </div>
 
     <!-- Enlace a Bootstrap JS (opcional) -->
