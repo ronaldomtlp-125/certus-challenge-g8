@@ -12,27 +12,38 @@
         function enviarSeleccion() {
             const seleccionados = [];
             const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            const nombreUsuario = document.getElementById('nombreUsuario').value;
 
             checkboxes.forEach((checkbox) => {
                 seleccionados.push(checkbox.value);
             });
+
+            if (!nombreUsuario.trim()) {
+                alert("Debes ingresar tu nombre.");
+                return;
+            }
 
             if (seleccionados.length !== 4) {
                 alert("Debes seleccionar exactamente 4 personajes.");
                 return;
             }
 
-            // Enviar los IDs seleccionados al controlador
+            // Enviar los IDs seleccionados y el nombre del usuario
             fetch('/inicio/guardarSeleccion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ ids: seleccionados })
+                body: JSON.stringify({
+                    nombre: nombreUsuario,
+                    ids: seleccionados
+                })
             })
                 .then(response => {
                     if (response.ok) {
                         alert("Selección enviada correctamente.");
+
+                        window.location.href = '/juego';
                     } else {
                         alert("Error al enviar la selección.");
                     }
@@ -52,6 +63,11 @@
                 <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-black bg-white rounded-full">
                     SELECCIÓN DE PERSONAJES
                 </h1>
+                <div class="text-center">
+                    <label for="nombreUsuario" class="block text-xl font-semibold">Nombre del Usuario:</label>
+                    <input id="nombreUsuario" type="text" class="border rounded-lg px-4"
+                        placeholder="Ingresa tu nombre">
+                </div>
             </div>
             <div class="p-1 flex flex-wrap items-center justify-center">
                 <!-- Tarjetas de personajes -->

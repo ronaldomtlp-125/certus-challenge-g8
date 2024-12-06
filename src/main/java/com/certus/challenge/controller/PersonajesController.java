@@ -34,18 +34,27 @@ public class PersonajesController {
 		return "/ventanas/jugadores/selectorPrin";
 	}
 
+	@SuppressWarnings("unchecked")
 	@PostMapping("/guardarSeleccion")
-	public ResponseEntity<String> guardarSeleccion(@RequestBody Map<String, List<Integer>> payload) {
-		List<Integer> idsSeleccionados = payload.get("ids");
+public ResponseEntity<String> guardarSeleccion(@RequestBody Map<String, Object> payload) {
+    // Extraer el nombre del usuario
+    String nombreUsuario = (String) payload.get("nombre");
+    List<Integer> idsSeleccionados = (List<Integer>) payload.get("ids");
 
-		if (idsSeleccionados == null || idsSeleccionados.size() != 4) {
-			return ResponseEntity.badRequest().body("Debes seleccionar exactamente 4 personajes.");
-		}
+    if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
+        return ResponseEntity.badRequest().body("El nombre de usuario es obligatorio.");
+    }
 
-		// Logica de IDs seleccionados
-		System.out.println("IDs seleccionados: " + idsSeleccionados);
+    if (idsSeleccionados == null || idsSeleccionados.size() != 4) {
+        return ResponseEntity.badRequest().body("Debes seleccionar exactamente 4 personajes.");
+    }
 
-		return ResponseEntity.ok("Selección guardada correctamente.");
-	}
+    // Logica para manejar la selección y el nombre
+    System.out.println("Nombre del Usuario: " + nombreUsuario);
+    System.out.println("IDs seleccionados: " + idsSeleccionados);
 
+    return ResponseEntity.ok("Selección guardada correctamente.");
+}
+
+	
 }
