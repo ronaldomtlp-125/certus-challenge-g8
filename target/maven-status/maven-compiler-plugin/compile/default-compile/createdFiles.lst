@@ -1,10 +1,14 @@
+com\certus\challenge\persistence\IJugadorRepository.class
 com\certus\challenge\service\IPersonajeService.class
 com\certus\challenge\service\PersonajeService.class
 com\certus\challenge\model\Producto.class
+com\certus\challenge\service\IJugadorService.class
 com\certus\challenge\controller\ControladorVistasPrinc.class
 com\certus\challenge\persistence\IPersonajeRepository.class
 com\certus\challenge\model\PersonajeModel.class
 com\certus\challenge\controller\PersonajesController.class
 com\certus\challenge\persistence\ProductoPersistencia.class
 com\certus\challenge\ChallengeApplication.class
+com\certus\challenge\model\JugadorModel.class
+com\certus\challenge\service\JugadorService.class
 com\certus\challenge\service\ProductoService.class
