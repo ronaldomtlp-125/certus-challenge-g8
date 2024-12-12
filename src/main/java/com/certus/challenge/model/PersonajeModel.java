@@ -1,9 +1,11 @@
 package com.certus.challenge.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,6 +20,8 @@ public class PersonajeModel {
     private String color;
     private String imgNombre;
     private String backgroundNombre;
+	@OneToOne(mappedBy = "personaje", cascade = CascadeType.ALL)
+    private JugadorModel jugador;
     
 	public int getId() {
 		return id;
